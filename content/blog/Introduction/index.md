@@ -5,6 +5,6 @@ category: 'Introduction'
 draft: false
 ---
 
-## ITについて
+## [ITについて](/Introduction/IT)
 
-## 学習について
+## [学習について](/Introduction/study)
