@@ -1,0 +1,19 @@
+name: Show package-lock.json
+on:
+  push:
+  pull_request:
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - run: rm package-lock.json
+      - run: npm install
+      - name: Show package-lock.json
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
