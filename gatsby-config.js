@@ -29,6 +29,11 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: `gatsby-remark-link-card`,
+            options: {
+            },
+          },
+          {
             resolve: `gatsby-remark-katex`,
             options: {
               strict: `ignore`,
