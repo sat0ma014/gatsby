@@ -1,5 +1,7 @@
 ---
 title: startpage on Gatsby.JS
+published: true
+category: develop
 ---
 ## 参考
 
