@@ -68,3 +68,54 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
   }
 }
+exports.createPages = async ({ graphql, actions }) => {
+
+  const { createPage } = actions;
+
+  //groupを使用してtagを抽出するクエリ
+
+  const tagsResult = await graphql(`
+
+    query tagsQuery {
+
+      allMarkdownRemark {
+
+        group(field: frontmatter___tag) {
+
+          fieldValue
+
+        }
+
+      }
+
+    }
+
+  `)
+
+  const sampleTemplate = path.resolve("./src/template/temp.js")
+
+  //タグの数だけforEachでループする
+
+  //テンプレート側で絞り込みをするため、contextで値（タグ）を渡す
+
+  tagsResult.data.allMarkdownRemark.group.forEach(v => {
+
+    const path = '/blog/tags/' + v.fieldValue
+
+    createPage({
+
+      path: path,
+
+      component: sampleTemplate,
+
+      context: {
+
+        tag: v.fieldValue
+
+      }
+
+    })
+
+  });
+
+}
