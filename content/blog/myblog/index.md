@@ -1,6 +1,6 @@
 ---
 title: 'My blog'
-date: 2019-1-3 16:21:13
+date: '2019-1-3 16:21:13'
 category: 'Development'
 ---
 Nextで編集画面を実装する。ボックスはEasyMDEを使う。
